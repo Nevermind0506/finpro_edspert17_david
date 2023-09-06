@@ -1,6 +1,5 @@
 import 'package:finpro_edspert17_david/presentation/router/pages.dart';
 import 'package:finpro_edspert17_david/presentation/router/routes.dart';
-import 'package:finpro_edspert17_david/presentation/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';

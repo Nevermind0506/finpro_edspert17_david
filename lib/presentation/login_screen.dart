@@ -1,5 +1,6 @@
-import 'package:finpro_edspert17_david/presentation/screen/home/home_page.dart';
+import 'package:finpro_edspert17_david/presentation/router/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -69,10 +70,7 @@ class LoginScreen extends StatelessWidget {
                           alignment: Alignment.center,
                           side: BorderSide(color: Color(0xff01B1AF))),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyHomePage()),
-                        );
+                        Get.toNamed(Routes.homeScreen);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
