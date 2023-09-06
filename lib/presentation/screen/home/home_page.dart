@@ -4,6 +4,7 @@ import 'package:finpro_edspert17_david/presentation/screen/home/widget/course_bu
 import 'package:finpro_edspert17_david/presentation/screen/home/widget/welcoming_widget.dart';
 import 'package:finpro_edspert17_david/presentation/screen/widgets/section_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +15,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return Scaffold(
       backgroundColor: Color(0xFFF3F7F8),
       appBar: AppBar(
@@ -23,7 +25,7 @@ class MyHomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hai, Fadil',
+              'Hai, David',
               style: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
@@ -42,7 +44,8 @@ class MyHomePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             child: CircleAvatar(
-              backgroundColor: Colors.red,
+              child: Image.asset('assets/images/edo_selfie.png'),
+              // backgroundColor: Colors.red,
             ),
           ),
         ],
@@ -54,7 +57,28 @@ class MyHomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               WelcomingWidget(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SectionTitle(title: 'Pilih Pelajaran'),
+                  TextButton(onPressed: () {}, child: const Text('Lihat Semua'))
+                ],
+              ),
+              const SizedBox(height: 5),
+              GetBuilder<HomeController>(
+                  init: homeController,
+                  initState: (state) => homeController.getCourse('IPA'),
+                  builder: (cHome) {
+                    final courseList = cHome.courseList;
+
+                    return courseList.isEmpty
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : CourseBuilder(courseList: courseList);
+                  }),
+              const SizedBox(height: 15),
               SectionTitle(title: 'Terbaru'),
               SizedBox(height: 10),
               GetBuilder<HomeController>(
@@ -71,26 +95,6 @@ class MyHomePage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SectionTitle(title: 'Pilih Pelajaran'),
-                  TextButton(onPressed: () {}, child: const Text('Lihat Semua'))
-                ],
-              ),
-              const SizedBox(height: 16),
-              GetBuilder<HomeController>(
-                  init: homeController,
-                  initState: (state) => homeController.getCourse('IPA'),
-                  builder: (cHome) {
-                    final courseList = cHome.courseList;
-
-                    return courseList.isEmpty
-                        ? const Center(
-                            child: CircularProgressIndicator(),
-                          )
-                        : CourseBuilder(courseList: courseList);
-                  }),
             ],
           ),
         ),
