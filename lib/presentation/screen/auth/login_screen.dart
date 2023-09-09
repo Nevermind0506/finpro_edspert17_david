@@ -1,7 +1,10 @@
 import 'package:finpro_edspert17_david/presentation/router/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'auth_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -69,8 +72,27 @@ class LoginScreen extends StatelessWidget {
                           elevation: 4,
                           alignment: Alignment.center,
                           side: BorderSide(color: Color(0xff01B1AF))),
-                      onPressed: () {
-                        Get.toNamed(Routes.homeScreen);
+                      onPressed: () async {
+                        AuthController controller = Get.find<AuthController>();
+                        User? user = await controller.signInWithGoogle();
+
+                        if (user != null) {
+                          Get.snackbar(
+                              'Signed In with google!', '${user.email}');
+
+                          bool isRegistered =
+                              await controller.isUserRegistered();
+                          if (isRegistered) {
+                            Get.snackbar('Is Registered!', 'User registered');
+                            // Get.offAllNamed(Routes.homeScreen);
+                          } else {
+                            Get.snackbar(
+                                'Not Registered!', 'User is not registered');
+                            // Get.toNamed(Routes.registrationFormScreen);
+                          }
+                        } else {
+                          Get.snackbar('Google SignIn Failed!', 'Failed');
+                        }
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

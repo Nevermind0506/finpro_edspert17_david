@@ -1,7 +1,7 @@
 import 'package:finpro_edspert17_david/presentation/screen/home/home_controller.dart';
-import 'package:finpro_edspert17_david/presentation/screen/home/widget/banner_builder.dart';
-import 'package:finpro_edspert17_david/presentation/screen/home/widget/course_builder.dart';
-import 'package:finpro_edspert17_david/presentation/screen/home/widget/welcoming_widget.dart';
+import 'package:finpro_edspert17_david/presentation/screen/home/widgets/banner_builder.dart';
+import 'package:finpro_edspert17_david/presentation/screen/home/widgets/course_builder.dart';
+import 'package:finpro_edspert17_david/presentation/screen/home/widgets/welcoming_widget.dart';
 import 'package:finpro_edspert17_david/presentation/screen/widgets/section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

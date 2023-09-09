@@ -1,4 +1,4 @@
-import 'package:finpro_edspert17_david/presentation/login_screen.dart';
+import 'package:finpro_edspert17_david/presentation/screen/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "758486038409",
+    "project_id": "finpro-edspert-app",
+    "storage_bucket": "finpro-edspert-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758486038409:android:ca97181dec931b15b45358",
+        "android_client_info": {
+          "package_name": "com.example.finpro_edspert17_david"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758486038409-gc519o3c4tf43896jtq30i51c6t34drf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdpEuI4HOiXoxuBM2RoKJOZhCnAl4WQL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758486038409-gc519o3c4tf43896jtq30i51c6t34drf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
